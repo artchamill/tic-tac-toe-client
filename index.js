@@ -44,7 +44,7 @@ const winningCombinations = [
 const checkForWin = function () {
   winningCombinations.forEach(function (element) {
     console.log(element)
-
+  // insert winningCombinations.every here
   })
   // if (winningCombinations === [0, 4, 6], [2, 4, 8],
   //   [0, 1, 2], [3, 4, 5], [6, 7, 8],
@@ -54,5 +54,10 @@ const checkForWin = function () {
   //   alert('Sorry. Try Again')
   // }
 }
+
+//click handler for boxes
+$('.gameboard').on('click', '.box', function () {
+  alert('x')
+})
 
 console.log(checkForWin())

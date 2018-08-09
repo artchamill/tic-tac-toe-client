@@ -56,8 +56,9 @@ const checkForWin = function () {
 }
 
 //click handler for boxes
-$('.gameboard').on('click', '.box', function () {
-  alert('x')
+$('.gameboard').on('click', '.box', function (event) {
+  const $id = $(event.currentTarget)
+  $box.addClass('xmove')
 })
 
 console.log(checkForWin())

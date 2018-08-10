@@ -1,11 +1,10 @@
 'use strict'
-console.log("Up and running!");
+console.log('Up and running!')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
-
 // game board
 const gameBoard = [
   ['X ', ' X', 'X '],
@@ -13,6 +12,7 @@ const gameBoard = [
   [' ', ' ', ' ']
 ]
 
+// wins logic
 if ((gameBoard[0] === 'X' && gameBoard[1] === 'X' && gameBoard[2] === 'X') ||
   (gameBoard[3] === 'X' && gameBoard[4] === 'X' && gameBoard[5] === 'X') ||
   (gameBoard[6] === 'X' && gameBoard[7] === 'X' && gameBoard[8] === 'X') ||
@@ -20,13 +20,27 @@ if ((gameBoard[0] === 'X' && gameBoard[1] === 'X' && gameBoard[2] === 'X') ||
   (gameBoard[1] === 'X' && gameBoard[4] === 'X' && gameBoard[7] === 'X') ||
   (gameBoard[2] === 'X' && gameBoard[5] === 'X' && gameBoard[8] === 'X') ||
   (gameBoard[0] === 'X' && gameBoard[4] === 'X' && gameBoard[6] === 'X') ||
-  (gameBoard[2] === 'X' && gameBoard[4] === 'X' && gameBoard[8] === 'X') ||
+  (gameBoard[2] === 'X' && gameBoard[4] === 'X' && gameBoard[8] === 'X')) {
+  ('#playerMessage').text('You win!')
+}
 
-// game conditions
-// const players = 2
-// let player1Wins = 0
-// let player2Wins = 0
-// let moves = 0
+if ((gameBoard[0] === 'O' && gameBoard[1] === 'O' && gameBoard[2] === 'O') ||
+  (gameBoard[3] === 'O' && gameBoard[4] === 'O' && gameBoard[5] === 'O') ||
+  (gameBoard[6] === 'O' && gameBoard[7] === 'O' && gameBoard[8] === 'O') ||
+  (gameBoard[0] === 'O' && gameBoard[3] === 'O' && gameBoard[6] === 'O') ||
+  (gameBoard[1] === 'O' && gameBoard[4] === 'O' && gameBoard[7] === 'O') ||
+  (gameBoard[2] === 'O' && gameBoard[5] === 'O' && gameBoard[8] === 'O') ||
+  (gameBoard[0] === 'O' && gameBoard[4] === 'O' && gameBoard[6] === 'O') ||
+  (gameBoard[2] === 'O' && gameBoard[4] === 'O' && gameBoard[8] === 'O')) {
+  ('#playerWinMessage').text('O wins')
+}
+
+const startGame = function () {
+const players = 2
+let player1Wins = 0
+let player2Wins = 0
+let moves = 0
+}
 
 // players
 // const player1 = 'x'
@@ -63,16 +77,14 @@ if ((gameBoard[0] === 'X' && gameBoard[1] === 'X' && gameBoard[2] === 'X') ||
   //   alert('Sorry. Try Again')
   // }
 // }
-
+function click (events) {
+  console.log('X')
+  // events.target
+  console.log(events.target)
+  $(events.target).text('X')
+}
 // click handler for boxes
-// $('.gameboard').on('click', '.box', function (event) {
-//   const $id = $(event.currentTarget)
-//   $box.addClass('xmove')
-// })
-
-// $('.gameboard').on('click', '.box', function () {
-//   alert('X')
-// })
+$('.gameboard').on('click', click)
 
 // $(() => {
 //

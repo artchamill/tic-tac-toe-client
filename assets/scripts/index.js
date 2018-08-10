@@ -12,8 +12,17 @@ const gameBoard = [
   [' ', ' ', ' ']
 ]
 
-// wins logic
-if ((gameBoard[0] === 'X' && gameBoard[1] === 'X' && gameBoard[2] === 'X') ||
+const startGame = function () {
+const players = 2
+let player1Wins = 0
+let player2Wins = 0
+let moves = 0
+// players
+const player1 = 'x'
+const player2 = 'o'
+
+  // wins logic
+  if ((gameBoard[0] === 'X' && gameBoard[1] === 'X' && gameBoard[2] === 'X') ||
   (gameBoard[3] === 'X' && gameBoard[4] === 'X' && gameBoard[5] === 'X') ||
   (gameBoard[6] === 'X' && gameBoard[7] === 'X' && gameBoard[8] === 'X') ||
   (gameBoard[0] === 'X' && gameBoard[3] === 'X' && gameBoard[6] === 'X') ||
@@ -21,10 +30,10 @@ if ((gameBoard[0] === 'X' && gameBoard[1] === 'X' && gameBoard[2] === 'X') ||
   (gameBoard[2] === 'X' && gameBoard[5] === 'X' && gameBoard[8] === 'X') ||
   (gameBoard[0] === 'X' && gameBoard[4] === 'X' && gameBoard[6] === 'X') ||
   (gameBoard[2] === 'X' && gameBoard[4] === 'X' && gameBoard[8] === 'X')) {
-  ('#playerMessage').text('You win!')
-}
+    ('#playerMessage').text('You win!')
+  }
 
-if ((gameBoard[0] === 'O' && gameBoard[1] === 'O' && gameBoard[2] === 'O') ||
+  if ((gameBoard[0] === 'O' && gameBoard[1] === 'O' && gameBoard[2] === 'O') ||
   (gameBoard[3] === 'O' && gameBoard[4] === 'O' && gameBoard[5] === 'O') ||
   (gameBoard[6] === 'O' && gameBoard[7] === 'O' && gameBoard[8] === 'O') ||
   (gameBoard[0] === 'O' && gameBoard[3] === 'O' && gameBoard[6] === 'O') ||
@@ -32,20 +41,25 @@ if ((gameBoard[0] === 'O' && gameBoard[1] === 'O' && gameBoard[2] === 'O') ||
   (gameBoard[2] === 'O' && gameBoard[5] === 'O' && gameBoard[8] === 'O') ||
   (gameBoard[0] === 'O' && gameBoard[4] === 'O' && gameBoard[6] === 'O') ||
   (gameBoard[2] === 'O' && gameBoard[4] === 'O' && gameBoard[8] === 'O')) {
-  ('#playerWinMessage').text('O wins')
+    ('#playerWinMessage').text('O wins')
+  }
+  // click handler for O boxes
+  function oclick (events) {
+    // console.log('X')
+    // console.log(events.target)
+    $(events.target).text('O')
+  }
+  $('.gameboard').on('click', oclick)
+
+  // click handler for x boxes
+  function xclick (events) {
+    // console.log('X')
+    // console.log(events.target)
+    $(events.target).text('X')
+  }
+  $('.gameboard').on('click', xclick)
 }
-
-const startGame = function () {
-const players = 2
-let player1Wins = 0
-let player2Wins = 0
-let moves = 0
-}
-
-// players
-// const player1 = 'x'
-// const player2 = 'o'
-
+// console.log(startGame)
 // player moves
 // const playerMoves = {
 //   'x': [],
@@ -77,14 +91,6 @@ let moves = 0
   //   alert('Sorry. Try Again')
   // }
 // }
-function click (events) {
-  console.log('X')
-  // events.target
-  console.log(events.target)
-  $(events.target).text('X')
-}
-// click handler for boxes
-$('.gameboard').on('click', click)
 
 // $(() => {
 //
